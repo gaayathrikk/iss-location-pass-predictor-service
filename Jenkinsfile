@@ -36,12 +36,8 @@ pipeline {
         stage('Frontend: Build') {
             steps {
                 dir("${FRONTEND_DIR}") {
-                    sh '''
-                        apt-get update
-                        apt-get install -y libatomic1
-                        npm ci
-                        npm run build
-                    '''
+                    sh 'npm ci'
+                    sh 'npm run build'
                 }
             }
         }
