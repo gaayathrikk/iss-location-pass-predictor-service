@@ -1,0 +1,22 @@
+:root {
+  --bg-page: #0e1024;
+  --hero-gradient: linear-gradient(135deg, #161a35 0%, #241c47 60%, #3a2b52 100%);
+  --surface-card: rgba(255, 255, 255, 0.03);
+  --surface-field: rgba(255, 255, 255, 0.04);
+  --border-subtle: #3a2b52;
+
+  --text-primary: #f3f1fb;
+  --text-muted: #c9bfe3;
+  --text-dim: #a79bc4;
+  --text-faint: #6c5f8f;
+
+  --accent-amber: #ff9466;
+  --accent-iss: #d8ecff;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}

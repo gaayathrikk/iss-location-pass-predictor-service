@@ -1,0 +1,22 @@
+.freshness-badge {
+  display: inline-block;
+  padding: 2px var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.freshness-badge--live {
+  background: color-mix(in srgb, var(--color-live) 20%, transparent);
+  color: var(--color-live);
+}
+.freshness-badge--cached_stale {
+  background: color-mix(in srgb, var(--color-cached) 20%, transparent);
+  color: var(--color-cached);
+}
+.freshness-badge--mock {
+  background: color-mix(in srgb, var(--color-mock) 25%, transparent);
+  color: var(--color-mock);
+}

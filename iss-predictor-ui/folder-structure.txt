@@ -1,0 +1,19 @@
+iss-predictor-ui/
+├── .env.development
+├── .env.production
+├── .gitignore
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── public/
+└── src/
+    ├── main.tsx          (Vite's entry point - leave as-is for now)
+    ├── App.tsx            (we'll rewrite this)
+    ├── index.css          (Vite's global styles - keep for now)
+    ├── vite-env.d.ts
+    ├── components/        (empty - UI pieces go here)
+    ├── hooks/             (empty - data-fetching logic goes here)
+    ├── api/                (empty - fetch functions go here)
+    ├── types/              (empty - TypeScript interfaces go here)
+    └── styles/             (empty - any extra CSS goes here)

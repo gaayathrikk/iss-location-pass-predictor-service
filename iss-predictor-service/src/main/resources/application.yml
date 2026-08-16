@@ -1,0 +1,64 @@
+isso:
+     api:
+       open-notify:
+         base-url: https://api.open-notify.org
+         timeout-ms: 5000
+
+
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: iss-predictor-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+# --- External API endpoints (12-Factor: config, credentials in env not code) ---
+iss:
+  api:
+    open-notify:
+      base-url: ${OPEN_NOTIFY_BASE_URL:http://api.open-notify.org}
+      timeout-ms: ${OPEN_NOTIFY_TIMEOUT_MS:3000}
+    pollux-labs:
+      base-url: ${POLLUX_LABS_BASE_URL:https://iss-api.polluxlabs.io}
+      api-key: ${POLLUX_LABS_API_KEY:}      # injected via env/secret manager, never committed
+      timeout-ms: ${POLLUX_TIMEOUT_MS:3000}
+    open-meteo:
+      base-url: ${OPEN_METEO_BASE_URL:https://api.open-meteo.com}
+      timeout-ms: ${OPEN_METEO_TIMEOUT_MS:3000}
+
+  cache:
+    # Option A: in-memory TTL cache tuning per data source
+    position-ttl-seconds: ${CACHE_TTL_POSITION:5}
+    pass-prediction-ttl-seconds: ${CACHE_TTL_PASS:1800}
+    weather-ttl-seconds: ${CACHE_TTL_WEATHER:900}
+    max-stale-serve-seconds: ${CACHE_MAX_STALE:21600}   # 6h hard ceiling on stale-serving
+
+  alerts:
+    visible-soon-window-minutes: 120
+    favourable-cloud-cover-pct: 20
+    extended-duration-minutes: 5
+    bright-magnitude-threshold: -2.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    root: INFO
+    com.isspredictor: DEBUG
